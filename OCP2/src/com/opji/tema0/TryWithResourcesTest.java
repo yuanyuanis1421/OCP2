@@ -35,10 +35,7 @@ public class TryWithResourcesTest {
 		}catch (IOException e) {
 			throw e;
 		}
-		try (MyResource mr = MyResource.createResource();  // first resource
-				     MyThingy mt = mr.createThingy()) {            // second resource
-				  // do stuff
-		}
+	
 	}
 	
 	// ok because AutoCloseable allows throwing any Exception
@@ -60,7 +57,7 @@ public class TryWithResourcesTest {
 	}
 
 	// ILLEGAL – Closeable only allows IOExceptions or subclasses
-	class D implements Closeable {
+	/*class D implements Closeable {
 		public void close() throws Exception {
 		}
 	}
@@ -70,6 +67,6 @@ public class TryWithResourcesTest {
 		public void close() throws IOException {
 		}
 	}
-
+*/
 	
 }
