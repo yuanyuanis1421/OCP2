@@ -16,7 +16,7 @@ public class PrintDirs extends SimpleFileVisitor<Path> {
 
 	public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
 		System.out.println("file: " + file);
-		return FileVisitResult.CONTINUE;
+		return FileVisitResult.TERMINATE;
 	}
 
 	public FileVisitResult visitFileFailed(Path file, IOException exc) {
@@ -26,10 +26,16 @@ public class PrintDirs extends SimpleFileVisitor<Path> {
 	public FileVisitResult postVisitDirectory(Path dir, IOException exc) {
 		System.out.println("post: " + dir);
 		return FileVisitResult.CONTINUE;
+		
 	}
+
+
 
 	public static void main(String[] args) throws Exception {
 		PrintDirs dirs = new PrintDirs();
 		Files.walkFileTree(Paths.get("/home"), dirs);
+		
+	
+		
 	}
 }

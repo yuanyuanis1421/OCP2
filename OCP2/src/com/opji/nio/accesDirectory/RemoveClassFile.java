@@ -1,6 +1,7 @@
 package com.opji.nio.accesDirectory;
 
 import java.nio.file.SimpleFileVisitor;
+import java.nio.file.FileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.io.File;
 import java.io.IOException;
@@ -90,9 +91,14 @@ public class RemoveClassFile extends SimpleFileVisitor<Path> {
 	}
 
 	class DeleteStructure extends SimpleFileVisitor<Path> {
-		public FileVisitResult visitFile(Path file, BasicFileAttributes basicFileAttributes) throws IOException {
+		public FileVisitResult visitFile(Path file, BasicFileAttributes basicFileAttributes)  {
 
-			Files.delete(file);
+			try {
+				Files.delete(file);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			System.out.println("fichero" + file + "borrado: " + !Files.exists(file));
 
 			return FileVisitResult.CONTINUE;

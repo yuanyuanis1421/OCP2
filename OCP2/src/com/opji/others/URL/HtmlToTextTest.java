@@ -18,6 +18,7 @@ public class HtmlToTextTest {
 	    private static final int timeout = 5 * 1000;
 	    private static final String PATH ="http://archive.fiba.com/pages/eng/fa/player/p/pid/28569/pid2//sid/5169/tid/362/tid2//_/2007_EuroBasket/index.html";
 	    private static int year;
+	    private MediaTournamentVO mediaTournamentVO;
 	    
 
 	    public static void main(String... args) throws IOException {
@@ -39,6 +40,7 @@ public class HtmlToTextTest {
 	            String plainText = formatter.getPlainText(doc);
 	           // System.out.println(plainText);
 	        }
+	        System.out.println(formatter.mediaTournamentVO.toString());
 	    }
 
 	    /**
@@ -72,6 +74,8 @@ public class HtmlToTextTest {
 	            			&&((Element)e.parentNode().parentNode()).hasClass("accu")){
 	            		
 	            		TournamentVO  tournamentVO =TournamentVOBuilder.build(e, year);
+	            		MediaTournamentVO mediaTournamentVO = new MediaTournamentVO(tournamentVO);
+	            		HtmlToTextTest.this.mediaTournamentVO = mediaTournamentVO;
 	            	}
 	            }
 	            if (node instanceof TextNode){

@@ -21,6 +21,13 @@ public class PathMatcherTest {
 		System.out.println(matcher.matches(path2));
 		System.out.println(matcher.matches(Paths.get("One.txt")));
 		
+		path1 = Paths.get("/home/One.txt");
+		path2 = Paths.get("One.txt");
+		matcher = FileSystems.getDefault()  // get the PathMatcher
+		            .getPathMatcher(                    //for the right file system
+		            "glob:*.txt");                      // wait. What's a glob?
+		System.out.println(matcher.matches(path1));
+		System.out.println(matcher.matches(path2));
 		
 		//1)Encuentra todos los archivos dentro de un directorio o subdirectorio que sean .exe dada esta ruta, imprimelos y cuentalos.
 		//2)Encuentra todos los archivos que tengan la palabra puta

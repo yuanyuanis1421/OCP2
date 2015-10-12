@@ -41,6 +41,9 @@ public class TournamentVO {
 	private int bs;
 	private int pts;
 	
+	public String toString(){
+		return String.valueOf(year);
+	}
 	
 	public int getYear() {
 		return year;
@@ -162,6 +165,8 @@ public class TournamentVO {
 	public void setPts(int pts) {
 		this.pts = pts;
 	}
+	
+	
 	
 
 }

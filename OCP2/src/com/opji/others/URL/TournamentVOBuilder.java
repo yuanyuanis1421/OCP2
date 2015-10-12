@@ -27,7 +27,6 @@ public class TournamentVOBuilder {
 	 * class="pf">12</td>15 <td class="t">23</td>16 <td class="st">5</td>17 <td
 	 * class="bs">9</td>18 <td class="pts">157</td>
 	 */
-	@SuppressWarnings("null")
 	private static void contruyeNodos(List<Node> listaNodos, TournamentVO tournamentVO) {
 
 		String[] separa = null;
@@ -47,7 +46,7 @@ public class TournamentVOBuilder {
 		tournamentVO.setFg(Integer.valueOf(separa[0]));
 		tournamentVO.setFga(Integer.valueOf(separa[1]));
 		separa = arrList[4].text().split("/");
-		tournamentVO.setFga(Integer.valueOf(separa[0]));
+		tournamentVO.setFg2(Integer.valueOf(separa[0]));
 		tournamentVO.setFga2(Integer.valueOf(separa[1]));
 		separa = arrList[6].text().split("/");
 		tournamentVO.setFg3(Integer.valueOf(separa[0]));
